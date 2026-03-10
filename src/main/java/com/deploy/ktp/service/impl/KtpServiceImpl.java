@@ -71,6 +71,10 @@ public class KtpServiceImpl implements KtpService {
         Ktp ktp = ktpRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Data tidak ditemukan"));
 
+        if (ktpRepository.findByNomorKtpAndIdNot(request.getNomorKtp(), id).isPresent()) {
+            throw new RuntimeException("Nomor KTP sudah digunakan");
+        }
+
         ktp.setNomorKtp(request.getNomorKtp());
         ktp.setNamaLengkap(request.getNamaLengkap());
         ktp.setAlamat(request.getAlamat());
