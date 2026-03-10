@@ -6,6 +6,7 @@ import com.deploy.ktp.model.dto.KtpDto;
 import com.deploy.ktp.model.entity.Ktp;
 import com.deploy.ktp.repository.KtpRepository;
 import com.deploy.ktp.service.KtpService;
+import com.deploy.ktp.util.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,12 @@ public class KtpServiceImpl implements KtpService {
     @Autowired
     private KtpRepository ktpRepository;
 
+    @Autowired
+    private ValidationUtil validationUtil;
+
     @Override
     public KtpDto addKtp(KtpAddRequest request) {
+        validationUtil.validate(request);
 
         if(ktpRepository.findByNomorKtp(request.getNomorKtp()).isPresent()){
             throw new RuntimeException("Nomor KTP sudah ada");
@@ -61,6 +66,7 @@ public class KtpServiceImpl implements KtpService {
 
     @Override
     public KtpDto update(Integer id, KtpAddRequest request) {
+        validationUtil.validate(request);
 
         Ktp ktp = ktpRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Data tidak ditemukan"));
