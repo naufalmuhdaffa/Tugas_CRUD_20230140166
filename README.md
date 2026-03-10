@@ -12,7 +12,7 @@
 
 ## Create KTP
 
-Endpoint : POST `/api/ktp`
+Endpoint : POST `/ktp`
 
 Request Body :
 
@@ -56,7 +56,7 @@ Error, 400 Bad Request :
 
 ## Get All KTP
 
-Endpoint : GET `/api/ktp`
+Endpoint : GET `/ktp`
 
 Response Body (Success, 200 OK) :
 
@@ -80,10 +80,10 @@ Response Body (Success, 200 OK) :
 
 ## Get KTP By ID
 
-Endpoint : GET `/api/ktp/{id}`
+Endpoint : GET `/ktp/{id}`
 
 Example :
-GET `/api/ktp/1`
+GET `/ktp/1`
 
 Response Body (Success, 200 OK) :
 
@@ -114,10 +114,10 @@ Error, 400 Bad Request :
 
 ## Update KTP
 
-Endpoint : PUT `/api/ktp/{id}`
+Endpoint : PUT `/ktp/{id}`
 
 Example :
-PUT `/api/ktp/1`
+PUT `/ktp/1`
 
 Request Body :
 
@@ -167,10 +167,10 @@ Error, 400 Bad Request :
 
 ## Delete KTP
 
-Endpoint : DELETE `/api/ktp/{id}`
+Endpoint : DELETE `/ktp/{id}`
 
 Example :
-DELETE `/api/ktp/1`
+DELETE `/ktp/1`
 
 Response Body (Success, 200 OK) :
 
